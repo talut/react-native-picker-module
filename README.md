@@ -3,7 +3,7 @@
 With this package you can easily use picker with onPress function.
 Also this package is workaround for Android Picker problem (https://github.com/facebook/react-native/issues/15556). 
 
-This package is using `Modal` and `Picker` component for IOS and using `RecyclerView` and `AlertDialog` for Android as `NativeModule`. 
+Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `AlertDialog` for Android as `NativeModule`. 
 
 
 <img src="./docs/android-picker-module.png"> <img src="./docs/ios-picker-module.png">
@@ -80,4 +80,36 @@ state = {
 }}/>
 ```
 
+## P.S
+You can use more than one picker in same screen. You just need to set different pickerRef. 
+```javascript
+this.languagePicker.show();
 
+<ReactNativePickerModule
+  pickerRef={e => this.languagePicker = e}
+  value={this.state.selectedValue}
+  title={"Select a language"}
+  items={this.state.data}
+  onValueChange={(index) => {
+    this.setState({
+       selectedValue: index
+    })
+}}/>
+```
+p.s : If you want to get country list from native device you can use this package: https://github.com/talut/react-native-countries
+```javascript
+this.countryPicker.show();
+<ReactNativePickerModule
+  pickerRef={e => this.countryPicker = e}
+  value={this.state.selectedValue}
+  title={"Select a country"}
+  items={this.state.data}
+  onValueChange={(index) => {
+    this.setState({
+       selectedValue: index
+    })
+}}/>
+```
+
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details
