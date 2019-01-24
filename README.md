@@ -1,34 +1,68 @@
-# react-native-picker-module
+# React Native Picker Module
 
-## Getting started
+React Native Picker Module 
 
-`npm install react-native-picker-module --save`
+<img src="./docs/android-picker-module.png">
+<img src="./docs/ios-picker-module.png">
 
-`yarn add react-native-picker-module`
+## Getting Started
 
-### Mostly automatic installation
+**With NPM**
 
-`$ react-native link react-native-picker-module`
+```
+npm install --save react-native-picker-module
+```
+
+**With YARN**
+
+```
+yarn add react-native-picker-module
+```
+
+**Automatic linking**
+
+```
+react-native link react-native-picker-module
+```
+
+**Manual Linking**
+
+**[Manual Installation](/docs/manual-installation.md)** (If something went wrong with react-native link)
 
 ### Manual installation
 
-
-#### Android
-
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.taluttasgiran.pickermodule.ReactNativePickerModulePackage;` to the imports at the top of the file
-  - Add `new ReactNativePickerModulePackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-picker-module'
-  	project(':react-native-picker-module').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-picker-module/android')
-  	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      implementation project(':react-native-picker-module')
-  	```
-
-
 ## Usage
-SOON
-  
+
+```javascript
+import ReactNativePickerModule from 'react-native-picker-module'
+
+state = {
+    selectedValue: null,
+    data: [
+        "Javascript",
+        "Go",
+        "Java",
+        "Kotlin",
+        "C++",
+        "C#",
+        "PHP"
+    ]
+};
+
+<TouchableOpacity onPress={() => {this.pickerRef.show()}}>
+  <Text>Show Language Picker</Text>
+</TouchableOpacity>
+
+<ReactNativePickerModule
+  pickerRef={e => this.pickerRef = e}
+  value={this.state.selectedValue}
+  title={"Select a language"}
+  items={this.state.data}
+  onValueChange={(index) => {
+    this.setState({
+       selectedValue: index
+    })
+}}/>
+```
+
+
