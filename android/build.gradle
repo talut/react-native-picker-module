@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.0'
+    }
+}
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "0.0.1"
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation 'com.facebook.react:react-native:+',
+    implementation "com.android.support:recyclerview-v7:+"
+}
+  
