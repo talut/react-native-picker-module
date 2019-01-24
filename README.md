@@ -2,8 +2,7 @@
 
 React Native Picker Module 
 
-<img src="./docs/android-picker-module.png">
-<img src="./docs/ios-picker-module.png">
+<img src="./docs/android-picker-module.png"> <img src="./docs/ios-picker-module.png">
 
 ## Getting Started
 
