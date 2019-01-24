@@ -80,7 +80,7 @@ state = {
 }}/>
 ```
 
-## P.S
+## FYI
 You can use more than one picker in same screen. You just need to set different pickerRef. 
 ```javascript
 this.languagePicker.show();
