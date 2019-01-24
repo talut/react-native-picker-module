@@ -1,4 +1,4 @@
-package com.pickermodule.RNSpinner;
+package com.taluttasgiran.pickermodule;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.react.bridge.Callback;
-import com.pickermodule.R;
 
 public class RNSpinner extends AlertDialog {
     AlertDialog dialog;

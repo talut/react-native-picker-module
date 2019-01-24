@@ -1,4 +1,4 @@
-package com.pickermodule.RNSpinner;
+package com.taluttasgiran.pickermodule;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.facebook.react.bridge.Callback;
-import com.pickermodule.R;
 
 public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyViewHolder> {
     private String[] mDataset;
