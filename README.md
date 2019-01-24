@@ -1,6 +1,10 @@
 # React Native Picker Module
 
-React Native Picker Module - With this package you can easily use picker with onPress function, also this package is workaround for Android Picker problem( https://github.com/facebook/react-native/issues/15556). For IOS package using Modal and Picker component.  Also for Android this package is using RecyclerView with AlertDialog. 
+With this package you can easily use picker with onPress function.
+Also this package is workaround for Android Picker problem (https://github.com/facebook/react-native/issues/15556). 
+
+This package is using `Modal` and `Picker` component for IOS and using `RecyclerView` and `AlertDialog` for Android as `NativeModule`. 
+
 
 <img src="./docs/android-picker-module.png"> <img src="./docs/ios-picker-module.png">
 
@@ -27,8 +31,6 @@ react-native link react-native-picker-module
 **Manual Linking**
 
 **[Manual Installation](/docs/manual-installation.md)** (If something went wrong with react-native link)
-
-### Manual installation
 
 ## Props
 
