@@ -14,7 +14,7 @@
     "spinner",
     "native"
   ],
-  "author": "Talut TASGIRAN",
+  "author": "FStojanac",
   "license": "MIT",
   "peerDependencies": {
     "prop-types": "^15.6.2",
@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/talut/react-native-picker-module.git"
+    "url": "git+https://github.com/fstojanac/react-native-picker-module.git"
   },
   "bugs": {
-    "url": "https://github.com/talut/react-native-picker-module/issues"
+    "url": "https://github.com/fstojanac/react-native-picker-module/issues"
   },
-  "homepage": "https://github.com/talut/react-native-picker-module#readme",
+  "homepage": "https://github.com/fstojanac/react-native-picker-module#readme",
   "files": [
     "dist"
   ],
