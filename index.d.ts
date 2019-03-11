@@ -1,4 +1,4 @@
-declare module "react-native-picker-module" {
+declare module "react-native-picker-module-typescript" {
   import { Component, ReactNode } from "react";
   import { StyleProp, ViewStyle, TextStyle } from "react-native";
 
