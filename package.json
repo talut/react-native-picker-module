@@ -1,8 +1,9 @@
 {
-  "name": "react-native-picker-module",
+  "name": "react-native-picker-module-typescript",
   "version": "0.1.2",
   "description": "React Native Picker Module Android & IOS",
   "main": "index.js",
+  "types": "index.d.ts",
   "keywords": [
     "react-native",
     "ios",
@@ -16,8 +17,8 @@
   "author": "Talut TASGIRAN",
   "license": "MIT",
   "peerDependencies": {
-    "react-native": "^0.57.8",
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.6.2",
+    "react-native": "^0.57.8"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,18 @@
   "bugs": {
     "url": "https://github.com/talut/react-native-picker-module/issues"
   },
-  "homepage": "https://github.com/talut/react-native-picker-module#readme"
+  "homepage": "https://github.com/talut/react-native-picker-module#readme",
+  "files": [
+    "dist"
+  ],
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react-native-picker-module-typescript": "^0.1.2"
+  }
 }
