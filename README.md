@@ -12,6 +12,7 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 ### Version 1.0.0
 
 - [https://github.com/talut/react-native-picker-module/issues/1](https://github.com/talut/react-native-picker-module/issues/1) this feature request added.
+- Typescript definitions added.
 
 ## Getting Started
 
