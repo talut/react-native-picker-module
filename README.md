@@ -8,6 +8,11 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 
 <img src="./docs/android-picker-module.png"> <img src="./docs/ios-picker-module.png">
 
+
+### Version 1.0.0
+
+- [https://github.com/talut/react-native-picker-module/issues/1](https://github.com/talut/react-native-picker-module/issues/1) this feature request added.
+
 ## Getting Started
 
 **With NPM**
@@ -73,9 +78,12 @@ state = {
   value={this.state.selectedValue}
   title={"Select a language"}
   items={this.state.data}
-  onValueChange={(index) => {
+  onValueChange={(value, index ) => {
+  console.log("value: ",value)
+  console.log("index: ",index)
     this.setState({
-       selectedValue: index
+       selectedValue: value,
+       selectedIndex: index,
     })
 }}/>
 ```
@@ -90,9 +98,12 @@ this.languagePicker.show();
   value={this.state.selectedValue}
   title={"Select a language"}
   items={this.state.data}
-  onValueChange={(index) => {
+  onValueChange={(value,index) => {
+        console.log("value: ",value)
+        console.log("index: ",index)
     this.setState({
-       selectedValue: index
+       selectedValue: value,
+       selectedIndex: index,
     })
 }}/>
 ```
@@ -104,9 +115,12 @@ this.countryPicker.show();
   value={this.state.selectedValue}
   title={"Select a country"}
   items={this.state.data}
-  onValueChange={(index) => {
+  onValueChange={(value,index) => {
+    console.log("value: ",value)
+    console.log("index: ",index)
     this.setState({
-       selectedValue: index
+       selectedValue: value,
+       selectedIndex: index,
     })
 }}/>
 ```
