@@ -9,10 +9,11 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 <img src="./docs/android-picker-module.png"> <img src="./docs/ios-picker-module.png">
 
 
-### Version 1.0.0
+### Version 1.0.1
 
 - [https://github.com/talut/react-native-picker-module/issues/1](https://github.com/talut/react-native-picker-module/issues/1) this feature request added.
 - Typescript definitions added.
+- Undefined value props at **IOS** issue solved.
 
 ## Getting Started
 
