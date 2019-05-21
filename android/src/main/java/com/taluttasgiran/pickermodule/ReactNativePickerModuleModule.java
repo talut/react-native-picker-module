@@ -16,12 +16,12 @@ public class ReactNativePickerModuleModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void show(ReadableArray items, int selectedItem, String placeholder, final Callback onClickCallback) {
+    public void show(ReadableArray items, int selectedItem, String placeholder, final Callback onClickCallback, final Callback onCancelCallback) {
         final String[] labels = new String[items.size()];
         for (int i = 0; i < items.size(); i++) {
             labels[i] = items.getString(i);
         }
-        rnSpinner = new RNSpinner(getCurrentActivity(), labels, selectedItem == -1 ? 0 : selectedItem, placeholder, onClickCallback);
+        rnSpinner = new RNSpinner(getCurrentActivity(), labels, selectedItem == -1 ? 0 : selectedItem, placeholder, onClickCallback,onCancelCallback);
         rnSpinner.show();
     }
 

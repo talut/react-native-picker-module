@@ -49,7 +49,7 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
             @Override
             public void onClick(View v) {
                 rnSpinner.hide();
-                callback.invoke(mDataset[position],position);
+                callback.invoke(mDataset[position], position);
             }
         });
     }

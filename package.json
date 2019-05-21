@@ -1,6 +1,6 @@
 {
   "name": "react-native-picker-module",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "React Native Picker Module Android & IOS",
   "main": "index.js",
   "types": "react-native-picker-module.d.ts",
@@ -17,8 +17,8 @@
   "author": "Talut TASGIRAN",
   "license": "MIT",
   "peerDependencies": {
-    "react-native": "^0.57.8",
-    "prop-types": "^15.6.2"
+    "react-native": "^0.59.8",
+    "prop-types": "^15.7.2"
   },
   "repository": {
     "type": "git",

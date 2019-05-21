@@ -2,6 +2,7 @@ package com.taluttasgiran.pickermodule;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,9 +13,9 @@ import android.widget.TextView;
 import com.facebook.react.bridge.Callback;
 
 public class RNSpinner extends AlertDialog {
-    AlertDialog dialog;
+    private AlertDialog dialog;
 
-    RNSpinner(Context context, String[] labels, int selectedItem, String title, Callback callback) {
+    RNSpinner(Context context, String[] labels, int selectedItem, String title, Callback callback, final Callback onCancelCallback) {
         super(context);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LinearLayout linearLayout = (LinearLayout) this.getLayoutInflater().inflate(R.layout.spinner_view, null);
@@ -36,6 +37,12 @@ public class RNSpinner extends AlertDialog {
             ((ViewGroup) linearLayout.getParent()).removeView(linearLayout); // <- fix
         }
         builder.setView(linearLayout);
+        builder.setOnCancelListener(new OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                onCancelCallback.invoke();
+            }
+        });
         dialog = builder.create();
     }
 

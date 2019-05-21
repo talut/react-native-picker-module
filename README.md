@@ -9,6 +9,10 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 <img src="./docs/android-picker-module.png"> <img src="./docs/ios-picker-module.png">
 
 
+### Version 1.1.0
+
+- [https://github.com/talut/react-native-picker-module/issues/7](https://github.com/talut/react-native-picker-module/issues/7) this feature request added.
+
 ### Version 1.0.1
 
 - [https://github.com/talut/react-native-picker-module/issues/1](https://github.com/talut/react-native-picker-module/issues/1) this feature request added.
@@ -49,6 +53,7 @@ react-native link react-native-picker-module
 |ios          |object|`{duration: 330, overlayColor: 'rgba(0,0,0,0.3)'}`|No        |IOS         |
 |pickerRef    |func  |-                                                 |**Yes**   |Android, IOS|
 |onValueChange|func  |-                                                 |**Yes**   |Android, IOS|
+|onCancel     |func  |-                                                 |**No**    |Android, IOS|
 |cancelButton |string|`Cancel`                                          |No        |IOS         |
 |confirmButton|string|`Confirm`                                         |No        |IOS         |
 
@@ -80,6 +85,7 @@ state = {
   value={this.state.selectedValue}
   title={"Select a language"}
   items={this.state.data}
+  onCancel={()=>{console.log('Cancelled')}}
   onValueChange={(value, index ) => {
   console.log("value: ",value)
   console.log("index: ",index)
