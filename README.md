@@ -9,7 +9,7 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 <img src="./docs/android-picker-module.png"> <img src="./docs/ios-picker-module.png">
 
 
-### Version 1.1.0
+### Version 1.1.1
 
 - [https://github.com/talut/react-native-picker-module/issues/7](https://github.com/talut/react-native-picker-module/issues/7) this feature request added.
 
