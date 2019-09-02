@@ -1,4 +1,4 @@
-# React Native Picker Module
+# React Native Picker Module for Android & IOS
 
 With this package you can easily use picker with onPress function.
 Also this package is workaround for Android Picker problem (https://github.com/facebook/react-native/issues/15556). 
