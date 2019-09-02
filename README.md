@@ -8,6 +8,12 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 
 <img src="./docs/android-picker-module.png"> <img src="./docs/ios-picker-module.png">
 
+### v1.2.0 now has AndroidX support. If you want to use this package without AndroidX support please use v1.1.1
+#### Facebook RN blog post about v0.60 and AndroidX support: [https://facebook.github.io/react-native/blog/2019/07/03/version-60](https://facebook.github.io/react-native/blog/2019/07/03/version-60)
+
+### Version 1.2.0
+- [https://github.com/talut/react-native-picker-module/pull/9](https://github.com/talut/react-native-picker-module/pull/9) Merged
+- AndroidX support added.
 
 ### Version 1.1.1
 
@@ -32,6 +38,8 @@ npm install --save react-native-picker-module
 ```
 yarn add react-native-picker-module
 ```
+
+#### After React Native v0.60 you don't need to link anything. [Native Modules are now Autolinked](https://facebook.github.io/react-native/blog/2019/07/03/version-60#native-modules-are-now-autolinked)
 
 **Automatic linking**
 

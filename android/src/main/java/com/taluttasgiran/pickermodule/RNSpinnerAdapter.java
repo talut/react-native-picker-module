@@ -1,6 +1,6 @@
 package com.taluttasgiran.pickermodule;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,19 +43,15 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 
-        Button button = holder.linearLayout.findViewById(R.id.button);
-        if (mDataSet[position] != null) {
-            button.setText(mDataSet[position]);
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    rnSpinner.hide();
-                    callback.invoke(mDataSet[position], position);
-                }
-            });
-        }else{
-            button.setVisibility(View.GONE);
-        }
+        Button button = (Button) holder.linearLayout.findViewById(R.id.button);
+        button.setText(mDataset[position]);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rnSpinner.hide();
+                callback.invoke(mDataset[position], position);
+            }
+        });
     }
 
     @Override
