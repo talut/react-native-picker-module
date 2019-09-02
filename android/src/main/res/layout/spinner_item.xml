@@ -10,5 +10,6 @@
         android:layout_height="wrap_content"
         android:gravity="start|center_vertical"
         android:padding="15dp"
+        android:textAllCaps="false"
         android:text="Button" />
 </LinearLayout>
