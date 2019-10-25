@@ -13,6 +13,7 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
     private String[] mDataset;
     RNSpinner rnSpinner;
     Callback callback;
+    Callback onDismiss;
     int selectedItemPosition;
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -24,11 +25,12 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
         }
     }
 
-    RNSpinnerAdapter(String[] myDataset, RNSpinner androidSpinner, Callback spinnerCallback, int selectedItem) {
+    RNSpinnerAdapter(String[] myDataset, RNSpinner androidSpinner, Callback spinnerCallback, int selectedItem, Callback onDismissCallback) {
         mDataset = myDataset;
         rnSpinner = androidSpinner;
         callback = spinnerCallback;
         selectedItemPosition = selectedItem;
+        onDismiss = onDismissCallback
     }
 
     @Override
@@ -49,6 +51,7 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
             @Override
             public void onClick(View v) {
                 rnSpinner.hide();
+                onDismiss.invoke()
                 callback.invoke(mDataset[position], position);
             }
         });

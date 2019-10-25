@@ -15,7 +15,7 @@ import com.facebook.react.bridge.Callback;
 public class RNSpinner extends AlertDialog {
     private AlertDialog dialog;
 
-    RNSpinner(Context context, String[] labels, int selectedItem, String title, Callback callback, final Callback onCancelCallback) {
+    RNSpinner(Context context, String[] labels, int selectedItem, String title, Callback callback, final Callback onCancelCallback, final Callback onDismissCallback) {
         super(context);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LinearLayout linearLayout = (LinearLayout) this.getLayoutInflater().inflate(R.layout.spinner_view, null);
@@ -31,7 +31,7 @@ public class RNSpinner extends AlertDialog {
         } else {
             tvPlaceholder.setVisibility(View.GONE);
         }
-        RNSpinnerAdapter mAdapter = new RNSpinnerAdapter(labels, this, callback, selectedItem);
+        RNSpinnerAdapter mAdapter = new RNSpinnerAdapter(labels, this, callback, selectedItem,onDismissCallback);
         recyclerView.setAdapter(mAdapter);
         if (linearLayout.getParent() != null) {
             ((ViewGroup) linearLayout.getParent()).removeView(linearLayout); // <- fix
