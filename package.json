@@ -1,6 +1,6 @@
 {
   "name": "react-native-picker-module",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "React Native Picker Module for Android & IOS",
   "main": "index.js",
   "types": "react-native-picker-module.d.ts",
@@ -21,9 +21,10 @@
     "react-native": "^0.60.5",
     "prop-types": "^15.7.2"
   },
+  "publishConfig": {"registry": "https://npm.pkg.github.com/@talut"},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/talut/react-native-picker-module.git"
+    "url": "git://github.com/talut/react-native-picker-module.git"
   },
   "bugs": {
     "url": "https://github.com/talut/react-native-picker-module/issues"

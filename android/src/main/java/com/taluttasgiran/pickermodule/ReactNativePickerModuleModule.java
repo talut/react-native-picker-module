@@ -21,7 +21,7 @@ public class ReactNativePickerModuleModule extends ReactContextBaseJavaModule {
         for (int i = 0; i < items.size(); i++) {
             labels[i] = items.getString(i);
         }
-        rnSpinner = new RNSpinner(getCurrentActivity(), labels, selectedItem == -1 ? 0 : selectedItem, placeholder, onClickCallback,onCancelCallback);
+        rnSpinner = new RNSpinner(getCurrentActivity(), labels, selectedItem == -1 ? 0 : selectedItem, placeholder, onClickCallback, onCancelCallback);
         rnSpinner.show();
     }
 

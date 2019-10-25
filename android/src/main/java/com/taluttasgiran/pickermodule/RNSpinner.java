@@ -19,13 +19,13 @@ public class RNSpinner extends AlertDialog {
         super(context);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LinearLayout linearLayout = (LinearLayout) this.getLayoutInflater().inflate(R.layout.spinner_view, null);
-        RecyclerView recyclerView = (RecyclerView) linearLayout.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = linearLayout.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setHasFixedSize(true);
         mLayoutManager.scrollToPositionWithOffset(selectedItem, 10);
-        TextView tvPlaceholder = (TextView) linearLayout.findViewById(R.id.placeholder);
+        TextView tvPlaceholder = linearLayout.findViewById(R.id.placeholder);
         if (title != null) {
             tvPlaceholder.setText(title);
         } else {

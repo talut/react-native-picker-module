@@ -11,6 +11,10 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 ### v1.2.0 now has AndroidX support. If you want to use this package without AndroidX support please use v1.1.1
 #### Facebook RN blog post about v0.60 and AndroidX support: [https://facebook.github.io/react-native/blog/2019/07/03/version-60](https://facebook.github.io/react-native/blog/2019/07/03/version-60)
 
+### Version 1.2.1
+- Please set selectedValue as number. At first versions packages was not return value text. Now it's returning value text and value index. But props name still same. Which means selectedValue means text to you but actually it is a number.
+- onDismiss : When user select a value this callback will called.
+
 ### Version 1.2.0
 - [https://github.com/talut/react-native-picker-module/pull/9](https://github.com/talut/react-native-picker-module/pull/9) Merged
 - AndroidX support added.
@@ -62,6 +66,7 @@ react-native link react-native-picker-module
 |pickerRef    |func  |-                                                 |**Yes**   |Android, IOS|
 |onValueChange|func  |-                                                 |**Yes**   |Android, IOS|
 |onCancel     |func  |-                                                 |**No**    |Android, IOS|
+|onDismiss    |func  |-                                                 |**No**    |Android, IOS|
 |cancelButton |string|`Cancel`                                          |No        |IOS         |
 |confirmButton|string|`Confirm`                                         |No        |IOS         |
 
@@ -72,7 +77,8 @@ react-native link react-native-picker-module
 import ReactNativePickerModule from 'react-native-picker-module'
 
 state = {
-    selectedValue: null,
+    valueText: undefined,
+    selectedIndex: null,
     data: [
         "Javascript",
         "Go",
@@ -90,56 +96,25 @@ state = {
 
 <ReactNativePickerModule
   pickerRef={e => this.pickerRef = e}
-  value={this.state.selectedValue}
+  selectedValue={this.state.selectedItem}
   title={"Select a language"}
   items={this.state.data}
+  onDismiss={()=>{console.log("onDismiss")}}
   onCancel={()=>{console.log('Cancelled')}}
-  onValueChange={(value, index ) => {
-  console.log("value: ",value)
+  onValueChange={(valueText, index ) => {
+  console.log("value: ",valueText)
   console.log("index: ",index)
     this.setState({
-       selectedValue: value,
-       selectedIndex: index,
+       valueText: valueText,
+       selectedItem: index,
     })
 }}/>
 ```
 
 ## FYI
 You can use more than one picker in same screen. You just need to set different pickerRef. 
-```javascript
-this.languagePicker.show();
 
-<ReactNativePickerModule
-  pickerRef={e => this.languagePicker = e}
-  value={this.state.selectedValue}
-  title={"Select a language"}
-  items={this.state.data}
-  onValueChange={(value,index) => {
-        console.log("value: ",value)
-        console.log("index: ",index)
-    this.setState({
-       selectedValue: value,
-       selectedIndex: index,
-    })
-}}/>
-```
-p.s : If you want to get country list from native device you can use this package: https://github.com/talut/react-native-countries
-```javascript
-this.countryPicker.show();
-<ReactNativePickerModule
-  pickerRef={e => this.countryPicker = e}
-  value={this.state.selectedValue}
-  title={"Select a country"}
-  items={this.state.data}
-  onValueChange={(value,index) => {
-    console.log("value: ",value)
-    console.log("index: ",index)
-    this.setState({
-       selectedValue: value,
-       selectedIndex: index,
-    })
-}}/>
-```
+p.s : If you want to get country list from native device you can use this package: [https://github.com/talut/react-native-countries](https://github.com/talut/react-native-countries)
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details

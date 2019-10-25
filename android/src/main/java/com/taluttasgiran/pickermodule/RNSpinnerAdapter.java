@@ -42,8 +42,7 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-
-        Button button = (Button) holder.linearLayout.findViewById(R.id.button);
+        Button button = holder.linearLayout.findViewById(R.id.button);
         button.setText(mDataset[position]);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
