@@ -15,23 +15,23 @@ import com.facebook.react.bridge.Callback;
 public class RNSpinner extends AlertDialog {
     private AlertDialog dialog;
 
-    RNSpinner(Context context, String[] labels, int selectedItem, String title, Callback callback, final Callback onCancelCallback, final Callback onDismissCallback) {
+    RNSpinner(Context context, String[] labels, int selectedItem, String title, Callback callback, final Callback onCancelCallback) {
         super(context);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LinearLayout linearLayout = (LinearLayout) this.getLayoutInflater().inflate(R.layout.spinner_view, null);
-        RecyclerView recyclerView = (RecyclerView) linearLayout.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = linearLayout.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setHasFixedSize(true);
         mLayoutManager.scrollToPositionWithOffset(selectedItem, 10);
-        TextView tvPlaceholder = (TextView) linearLayout.findViewById(R.id.placeholder);
+        TextView tvPlaceholder = linearLayout.findViewById(R.id.placeholder);
         if (title != null) {
             tvPlaceholder.setText(title);
         } else {
             tvPlaceholder.setVisibility(View.GONE);
         }
-        RNSpinnerAdapter mAdapter = new RNSpinnerAdapter(labels, this, callback, selectedItem,onDismissCallback);
+        RNSpinnerAdapter mAdapter = new RNSpinnerAdapter(labels, this, callback, selectedItem);
         recyclerView.setAdapter(mAdapter);
         if (linearLayout.getParent() != null) {
             ((ViewGroup) linearLayout.getParent()).removeView(linearLayout); // <- fix

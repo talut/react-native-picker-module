@@ -13,7 +13,7 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 
 ### Version 1.2.1
 - Please set selectedValue as number. At first versions packages was not return value text. Now it's returning value text and value index. But props name still same. Which means selectedValue means text to you but actually it is a number.
-- onDismiss callback added.
+- onDismiss : When user select a value this callback will called.
 
 ### Version 1.2.0
 - [https://github.com/talut/react-native-picker-module/pull/9](https://github.com/talut/react-native-picker-module/pull/9) Merged

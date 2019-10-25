@@ -12,7 +12,8 @@ declare module "react-native-picker-module" {
         ios?: object,
         pickerRef: () => {},
         onValueChange: () => {},
-        onDismiss: () => {},
+        onCancel?: () => {},
+        onDismiss?: () => {},
         cancelButton?: string,
         confirmButton?: string,
     }
