@@ -30,7 +30,7 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
         rnSpinner = androidSpinner;
         callback = spinnerCallback;
         selectedItemPosition = selectedItem;
-        onDismiss = onDismissCallback
+        onDismiss = onDismissCallback;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
             @Override
             public void onClick(View v) {
                 rnSpinner.hide();
-                onDismiss.invoke()
+                onDismiss.invoke();
                 callback.invoke(mDataset[position], position);
             }
         });
