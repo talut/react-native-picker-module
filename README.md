@@ -96,7 +96,7 @@ state = {
 
 <ReactNativePickerModule
   pickerRef={e => this.pickerRef = e}
-  selectedValue={this.state.selectedIndex}
+  selectedValue={this.state.selectedItem}
   title={"Select a language"}
   items={this.state.data}
   onDismiss={()=>{console.log("onDismiss")}}
@@ -106,7 +106,7 @@ state = {
   console.log("index: ",index)
     this.setState({
        valueText: valueText,
-       selectedIndex: index,
+       selectedItem: index,
     })
 }}/>
 ```
