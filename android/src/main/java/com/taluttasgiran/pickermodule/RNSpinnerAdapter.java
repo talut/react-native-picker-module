@@ -14,6 +14,7 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
     RNSpinner rnSpinner;
     Callback callback;
     Callback onDismiss;
+
     int selectedItemPosition;
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
