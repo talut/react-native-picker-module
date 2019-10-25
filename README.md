@@ -62,6 +62,7 @@ react-native link react-native-picker-module
 |pickerRef    |func  |-                                                 |**Yes**   |Android, IOS|
 |onValueChange|func  |-                                                 |**Yes**   |Android, IOS|
 |onCancel     |func  |-                                                 |**No**    |Android, IOS|
+|onDismiss    |func  |-                                                 |**No**    |Android, IOS|
 |cancelButton |string|`Cancel`                                          |No        |IOS         |
 |confirmButton|string|`Confirm`                                         |No        |IOS         |
 
@@ -93,6 +94,7 @@ state = {
   value={this.state.selectedValue}
   title={"Select a language"}
   items={this.state.data}
+  onDismiss={()=>{console.log("onDismiss")}}
   onCancel={()=>{console.log('Cancelled')}}
   onValueChange={(value, index ) => {
   console.log("value: ",value)
