@@ -73,7 +73,8 @@ react-native link react-native-picker-module
 import ReactNativePickerModule from 'react-native-picker-module'
 
 state = {
-    selectedValue: null,
+    valueText: undefined,
+    selectedIndex: null,
     data: [
         "Javascript",
         "Go",
@@ -91,16 +92,16 @@ state = {
 
 <ReactNativePickerModule
   pickerRef={e => this.pickerRef = e}
-  value={this.state.selectedValue}
+  selectedValue={this.state.selectedIndex}
   title={"Select a language"}
   items={this.state.data}
   onDismiss={()=>{console.log("onDismiss")}}
   onCancel={()=>{console.log('Cancelled')}}
-  onValueChange={(value, index ) => {
-  console.log("value: ",value)
+  onValueChange={(valueText, index ) => {
+  console.log("value: ",valueText)
   console.log("index: ",index)
     this.setState({
-       selectedValue: value,
+       valueText: valueText,
        selectedIndex: index,
     })
 }}/>
@@ -108,40 +109,8 @@ state = {
 
 ## FYI
 You can use more than one picker in same screen. You just need to set different pickerRef. 
-```javascript
-this.languagePicker.show();
 
-<ReactNativePickerModule
-  pickerRef={e => this.languagePicker = e}
-  value={this.state.selectedValue}
-  title={"Select a language"}
-  items={this.state.data}
-  onValueChange={(value,index) => {
-        console.log("value: ",value)
-        console.log("index: ",index)
-    this.setState({
-       selectedValue: value,
-       selectedIndex: index,
-    })
-}}/>
-```
-p.s : If you want to get country list from native device you can use this package: https://github.com/talut/react-native-countries
-```javascript
-this.countryPicker.show();
-<ReactNativePickerModule
-  pickerRef={e => this.countryPicker = e}
-  value={this.state.selectedValue}
-  title={"Select a country"}
-  items={this.state.data}
-  onValueChange={(value,index) => {
-    console.log("value: ",value)
-    console.log("index: ",index)
-    this.setState({
-       selectedValue: value,
-       selectedIndex: index,
-    })
-}}/>
-```
+p.s : If you want to get country list from native device you can use this package: [https://github.com/talut/react-native-countries](https://github.com/talut/react-native-countries)
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
