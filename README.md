@@ -11,9 +11,11 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 ### v1.2.0 now has AndroidX support. If you want to use this package without AndroidX support please use v1.1.1
 #### Facebook RN blog post about v0.60 and AndroidX support: [https://facebook.github.io/react-native/blog/2019/07/03/version-60](https://facebook.github.io/react-native/blog/2019/07/03/version-60)
 
-### Version 1.2.1
+### Version 1.2.2
 - Please set selectedValue as number. At first versions packages was not return value text. Now it's returning value text and value index. But props name still same. Which means selectedValue means text to you but actually it is a number.
 - onDismiss : When user select a value this callback will called.
+- Added supported orientation for Ios.
+- You can add  `double` value, `integer` value to items. But don't forget onValueChange will return value as `String`
 
 ### Version 1.2.0
 - [https://github.com/talut/react-native-picker-module/pull/9](https://github.com/talut/react-native-picker-module/pull/9) Merged
