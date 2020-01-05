@@ -65,6 +65,10 @@ react-native link react-native-picker-module
 |items        |array |-                                                 |**Yes**   |Android, IOS|
 |title        |string|-                                                 |No        |Android, IOS|
 |ios          |object|`{duration: 330, overlayColor: 'rgba(0,0,0,0.3)'}`|No        |IOS         |
+|titleStyle   |object|{}                                                |No        |IOS         |
+|itemStyle    |object|{}                                                |No        |IOS         |
+|cancelButtonTextStyle |object| {}                                      |No        |IOS         |
+|confirmButtonTextStyle|object| {}                                      |No        |IOS         |
 |pickerRef    |func  |-                                                 |**Yes**   |Android, IOS|
 |onValueChange|func  |-                                                 |**Yes**   |Android, IOS|
 |onCancel     |func  |-                                                 |**No**    |Android, IOS|
@@ -101,6 +105,10 @@ state = {
   selectedValue={this.state.selectedItem}
   title={"Select a language"}
   items={this.state.data}
+  titleStyle={{color:'red'}}
+  itemStyle={{color:'red'}}
+  confirmButtonTextStyle={{color:'red'}}
+  cancelButtonTextStyle={{color:'red'}}
   onDismiss={()=>{console.log("onDismiss")}}
   onCancel={()=>{console.log('Cancelled')}}
   onValueChange={(valueText, index ) => {

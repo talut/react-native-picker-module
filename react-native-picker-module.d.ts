@@ -16,6 +16,10 @@ declare module "react-native-picker-module" {
         onDismiss?: () => {},
         cancelButton?: string,
         confirmButton?: string,
+        titleStyle?: object,
+        cancelButtonTextStyle?: object,
+        confirmButtonTextStyle?: object,
+        itemStyle?: object
     }
 
     const ReactNativePickerModule: (props: ReactNativePickerModuleProps) => React.Component<ReactNativePickerModuleProps>;
