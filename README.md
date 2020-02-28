@@ -13,7 +13,7 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 
 ### Verison 1.3.0
 - [https://github.com/talut/react-native-picker-module/issues/23](https://github.com/talut/react-native-picker-module/issues/23) Feature added.
-
+- Usage example updated.
 
 ### Version 1.2.3
 - Please set selectedValue as number. At first versions packages was not return value text. Now it's returning value text and value index. But props name still same. Which means selectedValue means text to you but actually it is a number.
@@ -67,7 +67,7 @@ react-native link react-native-picker-module
 |-------------|------|--------------------------------------------------|----------|------------|
 |value        |number|-                                                 |No        |Android, IOS|
 |items        |array |-                                                 |**Yes**   |Android, IOS|
-|images       |array |If you want to add images its should be same length as items array |**No**    |Android|
+|images       |array |If you want to add image to item, images array should be same length as items array |**No**    |Android|
 |title        |string|-                                                 |No        |Android, IOS|
 |ios          |object|`{duration: 330, overlayColor: 'rgba(0,0,0,0.3)'}`|No        |IOS         |
 |pickerRef    |func  |-                                                 |**Yes**   |Android, IOS|
