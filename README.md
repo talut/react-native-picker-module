@@ -6,7 +6,7 @@ Also this package is workaround for Android Picker problem (https://github.com/f
 Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `AlertDialog` for Android as `NativeModule`. 
 
 
-<img src="./docs/android-picker-module.png"> <img src="./docs/ios-picker-module.png"><img src="./docs/itemWithImageExample.jpg">
+<img src="./docs/android-picker-module.png" width="200"> <img width="200" src="./docs/ios-picker-module.png"><img width="200" src="./docs/itemWithImageExample.jpg">
 
 ### Version >= 1.2.0 now has AndroidX support. If you want to use this package without AndroidX support please use v1.1.1
 #### Facebook RN blog post about v0.60 and AndroidX support: [https://facebook.github.io/react-native/blog/2019/07/03/version-60](https://facebook.github.io/react-native/blog/2019/07/03/version-60)
