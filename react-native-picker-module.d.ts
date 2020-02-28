@@ -8,6 +8,7 @@ declare module "react-native-picker-module" {
     interface ReactNativePickerModuleProps {
         value?: number,
         items: [],
+        images?: [],
         title?: string,
         ios?: object,
         pickerRef: () => {},

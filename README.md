@@ -11,6 +11,10 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 ### v >= 1.2.0 now has AndroidX support. If you want to use this package without AndroidX support please use v1.1.1
 #### Facebook RN blog post about v0.60 and AndroidX support: [https://facebook.github.io/react-native/blog/2019/07/03/version-60](https://facebook.github.io/react-native/blog/2019/07/03/version-60)
 
+### Verison 1.3.0
+- [https://github.com/talut/react-native-picker-module/issues/23](https://github.com/talut/react-native-picker-module/issues/23) Feature added.
+
+
 ### Version 1.2.3
 - Please set selectedValue as number. At first versions packages was not return value text. Now it's returning value text and value index. But props name still same. Which means selectedValue means text to you but actually it is a number.
 - onDismiss : When user select a value this callback will called.
@@ -59,10 +63,11 @@ react-native link react-native-picker-module
 
 ## Props
 
-| Props       | Type | Default                                          | Required | OS         |
+| Props       | Type | Default & Description                            | Required | OS         |
 |-------------|------|--------------------------------------------------|----------|------------|
 |value        |number|-                                                 |No        |Android, IOS|
 |items        |array |-                                                 |**Yes**   |Android, IOS|
+|images       |array |If you want to add images its should be same length as items array |**No**    |Android|
 |title        |string|-                                                 |No        |Android, IOS|
 |ios          |object|`{duration: 330, overlayColor: 'rgba(0,0,0,0.3)'}`|No        |IOS         |
 |pickerRef    |func  |-                                                 |**Yes**   |Android, IOS|
@@ -73,44 +78,65 @@ react-native link react-native-picker-module
 |confirmButton|string|`Confirm`                                         |No        |IOS         |
 
 
-## Usage
-
+## Usage with Hooks
 ```javascript
-import ReactNativePickerModule from 'react-native-picker-module'
+import React, { useState } from "react"
+import { Text, TouchableOpacity, View } from "react-native"
+import ReactNativePickerModule from "react-native-picker-module"
+import img1 from "./images/ic_attach_file_black_24dp.png"
+import img2 from "./images/ic_attach_money_black_24dp.png"
+import img3 from "./images/ic_border_color_black_24dp.png"
+import img4 from "./images/ic_format_bold_black_24dp.png"
+import img5 from "./images/ic_insert_drive_file_black_24dp.png"
+import img6 from "./images/ic_insert_emoticon_black_24dp.png"
+import img7 from "./images/ic_insert_invitation_black_24dp.png"
 
-state = {
-    valueText: undefined,
-    selectedIndex: null,
-    data: [
-        "Javascript",
-        "Go",
-        "Java",
-        "Kotlin",
-        "C++",
-        "C#",
-        "PHP"
-    ]
-};
+const App = () => {
+  let pickerRef = null
+  const [valueText, setValueText] = useState()
+  const [selectedIndex, setSelectedIndex] = useState(null)
+  const dataAndImageSet = {
+    data: ["Javascript", "Go", "Java", "Kotlin", "C++", "C#", "PHP"],
+    images: [img1, img2, img3, img4, img5, img6, img7],
+  }
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <TouchableOpacity
+        style={{
+          paddingVertical: 24,
+        }}
+        onPress={() => {
+          pickerRef.show()
+        }}>
+        <Text>Show Language Picker</Text>
+      </TouchableOpacity>
+      <Text>Selected Item Text: {valueText}</Text>
+      <Text>Selected Item ID: {selectedIndex}</Text>
+      <ReactNativePickerModule
+        pickerRef={e => (pickerRef = e)}
+        selectedValue={selectedIndex}
+        title={"Select a language"}
+        items={dataAndImageSet.data}
+        images={dataAndImageSet.images}
+        onDismiss={() => {
+          console.log("onDismiss")
+        }}
+        onCancel={() => {
+          console.log("Cancelled")
+        }}
+        onValueChange={(valueText, index) => {
+          console.log("value: ", valueText)
+          console.log("index: ", index)
+          setValueText(valueText)
+          setSelectedIndex(index)
+        }}
+      />
+    </View>
+  )
+}
 
-<TouchableOpacity onPress={() => {this.pickerRef.show()}}>
-  <Text>Show Language Picker</Text>
-</TouchableOpacity>
+export default App
 
-<ReactNativePickerModule
-  pickerRef={e => this.pickerRef = e}
-  selectedValue={this.state.selectedItem}
-  title={"Select a language"}
-  items={this.state.data}
-  onDismiss={()=>{console.log("onDismiss")}}
-  onCancel={()=>{console.log('Cancelled')}}
-  onValueChange={(valueText, index ) => {
-  console.log("value: ",valueText)
-  console.log("index: ",index)
-    this.setState({
-       valueText: valueText,
-       selectedItem: index,
-    })
-}}/>
 ```
 
 ## FYI
