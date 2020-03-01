@@ -11,7 +11,7 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 ### Version >= 1.2.0 now has AndroidX support. If you want to use this package without AndroidX support please use v1.1.1
 #### Facebook RN blog post about v0.60 and AndroidX support: [https://facebook.github.io/react-native/blog/2019/07/03/version-60](https://facebook.github.io/react-native/blog/2019/07/03/version-60)
 
-### Verison 1.3.0
+### Verison 1.3.1
 - [https://github.com/talut/react-native-picker-module/issues/23](https://github.com/talut/react-native-picker-module/issues/23) Feature added.
 - Usage example updated.
 
