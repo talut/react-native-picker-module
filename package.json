@@ -17,6 +17,9 @@
   ],
   "author": "Talut TASGIRAN",
   "license": "MIT",
+  "dependencies": {
+    "@react-native-community/picker": "^1.3.0"
+  },
   "peerDependencies": {
     "react-native": "^0.60.5",
     "prop-types": "^15.7.2"
