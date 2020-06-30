@@ -1,0 +1,74 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "react-native/react-native": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "@react-native-community"],
+  "plugins": ["react-native", "react"],
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "detect",
+      "flowVersion": "0.53"
+    },
+    "propWrapperFunctions": [
+      "forbidExtraProps",
+      {
+        "property": "freeze",
+        "object": "Object"
+      },
+      {
+        "property": "myFavoriteWrapper"
+      }
+    ],
+    "linkComponents": [
+      "Hyperlink",
+      {
+        "name": "Link",
+        "linkAttribute": "to"
+      }
+    ]
+  },
+  "rules": {
+    "require-atomic-updates": "off",
+    "react/jsx-wrap-multilines": ["error", { "declaration": "ignore", "assignment": "ignore", "prop": "ignore" }],
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": "off",
+    "react-native/no-color-literals": "off",
+    "react-native/no-raw-text": "error",
+    "react/jsx-max-props-per-line": [2, { "maximum": 4, "when": "multiline" }],
+    "react/jsx-first-prop-new-line": [2, "multiline-multiprop"],
+    "max-len": [
+      2,
+      120,
+      4,
+      {
+        "ignoreUrls": true,
+        "ignoreStrings": true
+      }
+    ],
+    "no-inline-comments": "off",
+    "prettier/prettier": "error",
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "double"],
+    "semi": ["off", "never"]
+  }
+}

@@ -11,7 +11,7 @@ export interface ReactNativePickerModuleProps {
     images?: any[],
     title?: string,
     ios?: object,
-    pickerRef: (e: ReactNativePickerModule) => void,
+    pickerRef: any[],
     onValueChange: (valueText: string, index: number) => void,
     onCancel?: () => void,
     onDismiss?: () => void,
