@@ -19,7 +19,8 @@ Using `react-native-modal` and `@react-native-community/picker` component for IO
 - Now we can set object array for items or array.
 - IOS part start using hooks
 - confirmButtonStyle & cancelButtonStyle & contentContainerStyle added
-- and a lot of upgrade...
+- Adding image to picker item at Android removed. If you need this feature please use v1.3.1
+- **And a lot of upgrade...**
 
 
 ## Getting Started
