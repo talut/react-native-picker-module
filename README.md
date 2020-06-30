@@ -11,29 +11,9 @@ Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `Alert
 ### Version >= 1.2.0 now has AndroidX support. If you want to use this package without AndroidX support please use v1.1.1
 #### Facebook RN blog post about v0.60 and AndroidX support: [https://facebook.github.io/react-native/blog/2019/07/03/version-60](https://facebook.github.io/react-native/blog/2019/07/03/version-60)
 
-### Verison 1.3.1
-- [https://github.com/talut/react-native-picker-module/issues/23](https://github.com/talut/react-native-picker-module/issues/23) Feature added.
-- Usage example updated.
-
-### Version 1.2.3
-- Please set selectedValue as number. At first versions packages was not return value text. Now it's returning value text and value index. But props name still same. Which means selectedValue means text to you but actually it is a number.
-- onDismiss : When user select a value this callback will called.
-- Added supported orientation for Ios.
-- You can add  `double` value, `integer` value to items. But don't forget onValueChange will return value as `String`
-
-### Version 1.2.0
-- [https://github.com/talut/react-native-picker-module/pull/9](https://github.com/talut/react-native-picker-module/pull/9) Merged
-- AndroidX support added.
-
-### Version 1.1.1
-
-- [https://github.com/talut/react-native-picker-module/issues/7](https://github.com/talut/react-native-picker-module/issues/7) this feature request added.
-
-### Version 1.0.1
-
-- [https://github.com/talut/react-native-picker-module/issues/1](https://github.com/talut/react-native-picker-module/issues/1) this feature request added.
-- Typescript definitions added.
-- Undefined value props at **IOS** issue solved.
+### Verison 1.4.0
+- useNativeDriver flag added.
+- You should 
 
 ## Getting Started
 
@@ -65,7 +45,7 @@ react-native link react-native-picker-module
 
 | Props       | Type | Default & Description                            | Required | OS         |
 |-------------|------|--------------------------------------------------|----------|------------|
-|value        |number|-                                                 |No        |Android, IOS|
+|selectedValue|number|-                                                 |No        |Android, IOS|
 |items        |array |-                                                 |**Yes**   |Android, IOS|
 |images       |array |If you want to add image to item, images array should be same length as items array |**No**    |Android|
 |title        |string|-                                                 |No        |Android, IOS|
