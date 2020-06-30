@@ -18,6 +18,7 @@ Using `react-native-modal` and `@react-native-community/picker` component for IO
 - disabled & enabled IOS confirm button styles added.
 - Now we can set object array for items or array.
 - IOS part start using hooks
+- confirmButtonStyle & cancelButtonStyle & contentContainerStyle added
 - and a lot of upgrade...
 
 
@@ -57,6 +58,9 @@ react-native link react-native-picker-module
 |items        |array / object array |-                                  |**Yes**    |Android, IOS|
 |title        |string|-                                                 |**No**        |Android, IOS|
 |titleStyle   |object|{}                                                |**No**        |IOS         |
+|confirmButtonStyle   |object|{}                                                |**No**        |IOS         |
+|cancelButtonStyle   |object|{}                                                |**No**        |IOS         |
+|contentContainerStyle   |object|{}                                                |**No**        |IOS         |
 |itemStyle    |object|{}                                                |**No**        |IOS         |
 |cancelButtonTextStyle |object| {}                                      |**No**        |IOS         |
 |confirmButtonEnabledTextStyle|object| {}                               |**No**        |IOS         |
@@ -119,13 +123,22 @@ const App = () => {
         pickerRef={pickerRef}
         value={value}
         title={"Select a language"}
-        items={dataset_2}
-        titleStyle={{ color: "red" }}
-        itemStyle={{ color: "red" }}
+        items={dataset_1}
+        titleStyle={{ color: "white" }}
+        itemStyle={{ color: "white" }}
         selectedColor="#FC0"
-        confirmButtonEnabledTextStyle={{ color: "red" }}
+        confirmButtonEnabledTextStyle={{ color: "white" }}
         confirmButtonDisabledTextStyle={{ color: "grey" }}
-        cancelButtonTextStyle={{ color: "red" }}
+        cancelButtonTextStyle={{ color: "white" }}
+        confirmButtonStyle={{
+          backgroundColor: "rgba(0,0,0,1)",
+        }}
+        cancelButtonStyle={{
+          backgroundColor: "rgba(0,0,0,1)",
+        }}
+        contentContainerStyle={{
+          backgroundColor: "rgba(0,0,0,1)",
+        }}
         onCancel={() => {
           console.log("Cancelled")
         }}
