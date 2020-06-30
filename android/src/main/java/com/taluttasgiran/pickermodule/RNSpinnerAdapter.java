@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableType;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -22,11 +25,11 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyViewHolder> {
-    private String[] mDataset;
+    private ReadableArray mDataset;
     RNSpinner rnSpinner;
     Callback callback;
-    int selectedItemPosition;
-    private String[] imageList;
+    String selectedValue;
+    ReadableArray selectedColor;
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
         LinearLayout linearLayout;
@@ -37,12 +40,12 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
         }
     }
 
-    RNSpinnerAdapter(String[] myDataset, RNSpinner androidSpinner, Callback spinnerCallback, int selectedItem, String[] images) {
+    RNSpinnerAdapter(ReadableArray myDataset, RNSpinner androidSpinner, Callback spinnerCallback, String mSelectedValue, ReadableArray mSelectedColor) {
         mDataset = myDataset;
         rnSpinner = androidSpinner;
         callback = spinnerCallback;
-        selectedItemPosition = selectedItem;
-        imageList = images;
+        selectedValue = mSelectedValue;
+        selectedColor = mSelectedColor;
     }
 
     @Override
@@ -53,45 +56,68 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
         return new MyViewHolder(linearLayout);
     }
 
-    private Bitmap getImageBitmap(String url) {
-        Bitmap bm = null;
-        try {
-            URL aURL = new URL(url);
-            URLConnection conn = aURL.openConnection();
-            conn.connect();
-            InputStream is = conn.getInputStream();
-            BufferedInputStream bis = new BufferedInputStream(is);
-            bm = BitmapFactory.decodeStream(bis);
-            bis.close();
-            is.close();
-        } catch (IOException e) {
-            Log.e("RNPickerModule", "Error getting bitmap", e);
-        }
-        return bm;
-    }
-
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
+        String value = null;
+        String text = null;
         Button button = holder.linearLayout.findViewById(R.id.button);
-        ImageView imageView = holder.linearLayout.findViewById(R.id.item_image);
-        if (this.imageList.length > 0) {
-            button.setPadding(15,15,15,15);
-            imageView.setImageBitmap(getImageBitmap(this.imageList[position]));
-        } else {
-            imageView.setVisibility(View.GONE);
+        if (mDataset.getType(position) == ReadableType.Map) {
+            if (mDataset.getMap(position).getType("value") == ReadableType.String) {
+                value = mDataset.getMap(position).getString("value");
+            } else {
+                double number = mDataset.getMap(position).getDouble("value");
+                if (number == Math.rint(number)) {
+                    value = String.valueOf((int) number);
+                } else {
+                    value = String.valueOf(number);
+                }
+            }
+            if (mDataset.getMap(position).getType("label") == ReadableType.String) {
+                text = mDataset.getMap(position).getString("label");
+            } else {
+                double number = mDataset.getMap(position).getDouble("label");
+                if (number == Math.rint(number)) {
+                    text = String.valueOf((int) number);
+                } else {
+                    text = String.valueOf(number);
+                }
+            }
+        } else if (mDataset.getType(position) == ReadableType.String) {
+            text = mDataset.getString(position);
+            value = mDataset.getString(position);
+        } else if (mDataset.getType(position) == ReadableType.Number) {
+            double number = mDataset.getDouble(position);
+            if (number == Math.rint(number)) {
+                text = String.valueOf((int) number);
+                value = String.valueOf((int) number);
+            } else {
+                text = String.valueOf(number);
+                value = String.valueOf(number);
+            }
         }
-        button.setText(mDataset[position]);
+        button.setText(text);
+        final String finalValue = value;
+        if (selectedValue != null) {
+            if (selectedValue.equals(value)) {
+                button.setEnabled(false);
+                if (selectedColor != null) {
+                    button.setTextColor(Color.rgb(selectedColor.getInt(0), selectedColor.getInt(1), selectedColor.getInt(2)));
+                }
+            }
+        }
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rnSpinner.hide();
-                callback.invoke(mDataset[position], position);
+                callback.invoke(finalValue);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset.size();
     }
 }
+
+

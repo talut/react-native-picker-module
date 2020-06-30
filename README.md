@@ -1,19 +1,16 @@
 # React Native Picker Module for Android & IOS
 
 With this package you can easily use picker with onPress function.
-Also this package is workaround for Android Picker problem (https://github.com/facebook/react-native/issues/15556). 
+Also this package is workaround for Android Picker problem (https://github.com/facebook/react-native/issues/15556).
 
-Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `AlertDialog` for Android as `NativeModule`. 
+Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `AlertDialog` for Android as `NativeModule`.
 
 
 <img src="./docs/android-picker-module.png" width="200"> <img width="200" src="./docs/ios-picker-module.png"><img width="200" src="./docs/itemWithImageExample.jpg">
 
-### Version >= 1.2.0 now has AndroidX support. If you want to use this package without AndroidX support please use v1.1.1
-#### Facebook RN blog post about v0.60 and AndroidX support: [https://facebook.github.io/react-native/blog/2019/07/03/version-60](https://facebook.github.io/react-native/blog/2019/07/03/version-60)
-
-### Verison 1.4.0
+### Verison 2.0.0
 - useNativeDriver flag added.
-- You should 
+- You should
 
 ## Getting Started
 
@@ -64,62 +61,69 @@ react-native link react-native-picker-module
 
 ## Usage with Hooks
 ```javascript
-import React, { useState } from "react"
-import { Text, TouchableOpacity, View } from "react-native"
+import React, { useRef, useState } from "react"
+import { Button, SafeAreaView, Text } from "react-native"
 import ReactNativePickerModule from "react-native-picker-module"
-import img1 from "./images/ic_attach_file_black_24dp.png"
-import img2 from "./images/ic_attach_money_black_24dp.png"
-import img3 from "./images/ic_border_color_black_24dp.png"
-import img4 from "./images/ic_format_bold_black_24dp.png"
-import img5 from "./images/ic_insert_drive_file_black_24dp.png"
-import img6 from "./images/ic_insert_emoticon_black_24dp.png"
-import img7 from "./images/ic_insert_invitation_black_24dp.png"
 
 const App = () => {
-  let pickerRef = null
-  const [valueText, setValueText] = useState()
-  const [selectedIndex, setSelectedIndex] = useState(null)
-  const dataAndImageSet = {
-    data: ["Javascript", "Go", "Java", "Kotlin", "C++", "C#", "PHP"],
-    images: [img1, img2, img3, img4, img5, img6, img7],
-  }
+  const pickerRef = useRef()
+  const [value, setValue] = useState()
+  const dataset_1 = ["Javascript", "Go", "Java", "Kotlin", "C++", "C#", "PHP"]
+  const dataset_2 = [
+    {
+      value: "js_101",
+      label: "Javascript",
+    },
+    {
+      value: "golang_101",
+      label: "Go",
+    },
+    {
+      value: "kotlin_dsl",
+      label: "Kotlin",
+    },
+    {
+      value: "java_101",
+      label: "Java",
+    },
+    {
+      value: "cplusplus",
+      label: "C++",
+    },
+    {
+      value: "csharp_201",
+      label: "C#",
+    },
+    {
+      value: "php_201",
+      label: "PHP",
+    },
+  ]
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <TouchableOpacity
-        style={{
-          paddingVertical: 24,
-        }}
-        onPress={() => {
-          pickerRef.show()
-        }}>
-        <Text>Show Language Picker</Text>
-      </TouchableOpacity>
-      <Text>Selected Item Text: {valueText}</Text>
-      <Text>Selected Item ID: {selectedIndex}</Text>
+    <>
+      <SafeAreaView>
+        <Button title="Select a language" onPress={() => pickerRef.current.show()} />
+        <Text>Selected Item Text: {value}</Text>
+      </SafeAreaView>
       <ReactNativePickerModule
-        pickerRef={e => (pickerRef = e)}
-        selectedValue={selectedIndex}
+        pickerRef={pickerRef}
+        value={value}
         title={"Select a language"}
-        items={dataAndImageSet.data}
-        titleStyle={{color:'red'}}
-        itemStyle={{color:'red'}}
-        confirmButtonTextStyle={{color:'red'}}
-        cancelButtonTextStyle={{color:'red'}}
-        images={dataAndImageSet.images}
-        onDismiss={() => {
-          console.log("onDismiss")
-        }}
+        items={dataset_2}
+        titleStyle={{ color: "red" }}
+        itemStyle={{ color: "red" }}
+        confirmButtonEnabledTextStyle={{ color: "red" }}
+        confirmButtonDisabledTextStyle={{ color: "grey" }}
+        cancelButtonTextStyle={{ color: "red" }}
         onCancel={() => {
           console.log("Cancelled")
         }}
-        onValueChange={(valueText, index) => {
-          console.log("value: ", valueText)
-          console.log("index: ", index)
-          setValueText(valueText)
-          setSelectedIndex(index)
+        onValueChange={value => {
+          console.log("value: ", value)
+          setValue(value)
         }}
       />
-    </View>
+    </>
   )
 }
 
@@ -128,7 +132,7 @@ export default App
 ```
 
 ## FYI
-You can use more than one picker in same screen. You just need to set different pickerRef. 
+You can use more than one picker in same screen. You just need to set different pickerRef.
 
 p.s : If you want to get country list from native device you can use this package: [https://github.com/talut/react-native-countries](https://github.com/talut/react-native-countries)
 

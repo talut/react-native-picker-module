@@ -6,25 +6,26 @@
 import React from "react"
 
 export interface ReactNativePickerModuleProps {
-    value?: number,
-    items: string[],
-    images?: any[],
-    title?: string,
-    ios?: object,
-    pickerRef: any[],
-    onValueChange: (valueText: string, index: number) => void,
-    onCancel?: () => void,
-    onDismiss?: () => void,
-    cancelButton?: string,
-    confirmButton?: string,
-    titleStyle?: object
-    itemStyle?: object
-    useNativeDriver?: boolean,
-    confirmButtonDisabledTextStyle?: object
-    confirmButtonEnabledTextStyle?: object
-    cancelButtonTextStyle?: object
+  value?: string,
+  items: string[]
+  title?: string
+  pickerRef: any[]
+  onValueChange: (value: string) => void
+  onCancel?: () => void
+  cancelButton?: string
+  confirmButton?: string
+  titleStyle?: object
+  itemStyle?: object
+  useNativeDriver?: boolean
+  confirmButtonDisabledTextStyle?: object
+  confirmButtonEnabledTextStyle?: object
+  cancelButtonTextStyle?: object,
+  backdropColor?: string,
+  backdropOpacity?: number,
+  selectedColor?: string,
 }
 
-export default class ReactNativePickerModule extends React.Component<ReactNativePickerModuleProps>{
-    show: () => void;
+export default class ReactNativePickerModule extends React.Component<ReactNativePickerModuleProps> {
+  show: () => void
+  hide: () => void
 }
