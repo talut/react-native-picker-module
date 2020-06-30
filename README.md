@@ -5,7 +5,7 @@ With this package you can easily use picker with onPress function.
 Using `react-native-modal` and `@react-native-community/picker` component for IOS and using `RecyclerView` and `AlertDialog` for Android as `NativeModule`.
 
 
-<img src="./docs/android-picker-module.png" width="200"> <img width="200" src="./docs/ios-picker-module.png"><img width="200" src="./docs/itemWithImageExample.jpg">
+<img src="./docs/android-picker-module.png" width="200"> <img width="200" src="./docs/ios-picker-module.png">
 
 
 ### v2.0.0 has a lot of breaking changes. You should be carefull when using this version.
@@ -50,21 +50,21 @@ react-native link react-native-picker-module
 
 | Props       | Type | Default & Description                            | Required | OS         |
 |-------------|------|--------------------------------------------------|----------|------------|
-|value        |string|-                                                 |No        |Android, IOS|
-|useNativeDriver|bool|`true`                                                |No        |IOS|
-|backdropColor|string|-                                                |No        |IOS|
-|backdropOpacity|double|`0.7`                                                |No        |IOS|
-|items        |array / object array |-                                  |**Yes**   |Android, IOS|
-|title        |string|-                                                 |No        |Android, IOS|
-|titleStyle   |object|{}                                                |No        |IOS         |
-|itemStyle    |object|{}                                                |No        |IOS         |
-|cancelButtonTextStyle |object| {}                                      |No        |IOS         |
-|confirmButtonEnabledTextStyle|object| {}                               |No        |IOS         |
-|confirmButtonDisabledTextStyle |object| {}                             |No        |IOS         |
+|value        |string|-                                                 |**No**        |Android, IOS|
+|useNativeDriver|bool|`true`                                            |**No**        |IOS|
+|backdropColor|string|-                                                 |**No**        |IOS|
+|backdropOpacity|double|`0.7`                                           |**No**        |IOS|
+|items        |array / object array |-                                  |**Yes**    |Android, IOS|
+|title        |string|-                                                 |**No**        |Android, IOS|
+|titleStyle   |object|{}                                                |**No**        |IOS         |
+|itemStyle    |object|{}                                                |**No**        |IOS         |
+|cancelButtonTextStyle |object| {}                                      |**No**        |IOS         |
+|confirmButtonEnabledTextStyle|object| {}                               |**No**        |IOS         |
+|confirmButtonDisabledTextStyle |object| {}                             |**No**        |IOS         |
 |pickerRef    |any   |-                                                 |**Yes**   |Android, IOS|
 |onValueChange|func  |(value: string) => void                           |**Yes**   |Android, IOS|
-|cancelButton |string|`Cancel`                                          |No        |IOS         |
-|confirmButton|string|`Confirm`                                         |No        |IOS         |
+|cancelButton |string|`Cancel`                                          |**No**        |IOS         |
+|confirmButton|string|`Confirm`                                         |**No**        |IOS         |
 |onCancel     |func  |-                                                 |**No**    |Android, IOS|
 |selectedColor|string|-                                                 |**No**    |Android, IOS|
 
@@ -108,10 +108,6 @@ const App = () => {
       value: "php_201",
       label: "PHP",
     },
-    {
-      value: "golang_101",
-      label: "Go",
-    },
   ]
   return (
     <>
@@ -126,7 +122,7 @@ const App = () => {
         items={dataset_2}
         titleStyle={{ color: "red" }}
         itemStyle={{ color: "red" }}
-        selectedColor="rgba(0,0,0,0.8)"
+        selectedColor="#FC0"
         confirmButtonEnabledTextStyle={{ color: "red" }}
         confirmButtonDisabledTextStyle={{ color: "grey" }}
         cancelButtonTextStyle={{ color: "red" }}
