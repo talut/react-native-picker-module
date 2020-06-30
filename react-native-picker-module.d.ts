@@ -1,24 +1,24 @@
-// Type definitions for react-native-picker-module 1.0.0
+// Type definitions for react-native-picker-module 1.3.1
 // Project: https://github.com/talut/react-native-picker-module
 // Definitions by: Talut TASGIRAN <https://github.com/talut>
-// TypeScript Version: 2.8
-declare module "react-native-picker-module" {
-    import React from 'react';
+// TypeScript Version: 3.8.2
 
-    interface ReactNativePickerModuleProps {
-        value?: number,
-        items: [],
-        images?: [],
-        title?: string,
-        ios?: object,
-        pickerRef: () => {},
-        onValueChange: () => {},
-        onCancel?: () => {},
-        onDismiss?: () => {},
-        cancelButton?: string,
-        confirmButton?: string,
-    }
+import React from 'react'
 
-    const ReactNativePickerModule: (props: ReactNativePickerModuleProps) => React.Component<ReactNativePickerModuleProps>;
-    export default ReactNativePickerModule;
+export interface ReactNativePickerModuleProps {
+    value?: number,
+    items: string[];
+    images?: any[];
+    title?: string;
+    ios?: object;
+    pickerRef: (e: ReactNativePickerModule) => void;
+    onValueChange: (valueText: string, index: number) => void;
+    onCancel?: () => void;
+    onDismiss?: () => void;
+    cancelButton?: string;
+    confirmButton?: string;
+}
+
+export default class ReactNativePickerModule extends React.Component<ReactNativePickerModuleProps>{
+    show: () => void;
 }
