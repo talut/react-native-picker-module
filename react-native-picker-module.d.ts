@@ -17,10 +17,12 @@ export interface ReactNativePickerModuleProps {
     onDismiss?: () => void,
     cancelButton?: string,
     confirmButton?: string,
-    titleStyle?: object,
-    cancelButtonTextStyle?: object,
-    confirmButtonTextStyle?: object,
+    titleStyle?: object
     itemStyle?: object
+    useNativeDriver?: boolean,
+    confirmButtonDisabledTextStyle?: object
+    confirmButtonEnabledTextStyle?: object
+    cancelButtonTextStyle?: object
 }
 
 export default class ReactNativePickerModule extends React.Component<ReactNativePickerModuleProps>{
