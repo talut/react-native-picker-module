@@ -1,33 +1,41 @@
 # React Native Picker Module for Android & IOS
 
 With this package you can easily use picker with onPress function.
-Also this package is workaround for Android Picker problem (https://github.com/facebook/react-native/issues/15556).
 
-Using `Modal` and `Picker` component for IOS and using `RecyclerView` and `AlertDialog` for Android as `NativeModule`.
+Using `react-native-modal` and `@react-native-community/picker` component for IOS and using `RecyclerView` and `AlertDialog` for Android as `NativeModule`.
 
 
 <img src="./docs/android-picker-module.png" width="200"> <img width="200" src="./docs/ios-picker-module.png"><img width="200" src="./docs/itemWithImageExample.jpg">
 
-### Verison 2.0.0
+
+### v2.0.0 has a lot of breaking changes. You should be carefull when using this version.
+
+### Version 2.0.0
 - useNativeDriver flag added.
-- You should
+- @react-native-community/picker added because picker extracted from core react native
+- react-native-modal added to package for IOS
+- selectedColor added
+- disabled & enabled IOS confirm button styles added.
+- Now we can set object array for items or array.
+- IOS part start using hooks
+- and a lot of upgrade...
+
 
 ## Getting Started
-
-**With NPM**
-
-```
-npm install --save react-native-picker-module
-```
 
 **With YARN**
 
 ```
-yarn add react-native-picker-module
+yarn add react-native-picker-module && yarn add react-native-modal && yarn add @react-native-community/picker
 ```
 
-#### After React Native v0.60 you don't need to link anything. [Native Modules are now Autolinked](https://facebook.github.io/react-native/blog/2019/07/03/version-60#native-modules-are-now-autolinked)
+#### After React Native v0.60.0
 
+```
+cd ios && pod install
+```
+
+#### Before React Native v0.60.0
 **Automatic linking**
 
 ```
@@ -42,21 +50,23 @@ react-native link react-native-picker-module
 
 | Props       | Type | Default & Description                            | Required | OS         |
 |-------------|------|--------------------------------------------------|----------|------------|
-|selectedValue|number|-                                                 |No        |Android, IOS|
-|items        |array |-                                                 |**Yes**   |Android, IOS|
-|images       |array |If you want to add image to item, images array should be same length as items array |**No**    |Android|
+|value        |string|-                                                 |No        |Android, IOS|
+|useNativeDriver|bool|`true`                                                |No        |IOS|
+|backdropColor|string|-                                                |No        |IOS|
+|backdropOpacity|double|`0.7`                                                |No        |IOS|
+|items        |array / object array |-                                  |**Yes**   |Android, IOS|
 |title        |string|-                                                 |No        |Android, IOS|
-|ios          |object|`{duration: 330, overlayColor: 'rgba(0,0,0,0.3)'}`|No        |IOS         |
 |titleStyle   |object|{}                                                |No        |IOS         |
 |itemStyle    |object|{}                                                |No        |IOS         |
 |cancelButtonTextStyle |object| {}                                      |No        |IOS         |
-|confirmButtonTextStyle|object| {}                                      |No        |IOS         |
-|pickerRef    |func  |-                                                 |**Yes**   |Android, IOS|
-|onValueChange|func  |-                                                 |**Yes**   |Android, IOS|
-|onCancel     |func  |-                                                 |**No**    |Android, IOS|
-|onDismiss    |func  |-                                                 |**No**    |Android, IOS|
+|confirmButtonEnabledTextStyle|object| {}                               |No        |IOS         |
+|confirmButtonDisabledTextStyle |object| {}                             |No        |IOS         |
+|pickerRef    |any   |-                                                 |**Yes**   |Android, IOS|
+|onValueChange|func  |(value: string) => void                           |**Yes**   |Android, IOS|
 |cancelButton |string|`Cancel`                                          |No        |IOS         |
 |confirmButton|string|`Confirm`                                         |No        |IOS         |
+|onCancel     |func  |-                                                 |**No**    |Android, IOS|
+|selectedColor|string|-                                                 |**No**    |Android, IOS|
 
 
 ## Usage with Hooks
@@ -68,10 +78,10 @@ import ReactNativePickerModule from "react-native-picker-module"
 const App = () => {
   const pickerRef = useRef()
   const [value, setValue] = useState()
-  const dataset_1 = ["Javascript", "Go", "Java", "Kotlin", "C++", "C#", "PHP"]
+  const dataset_1 = [1, 2, "Java", "Kotlin", "C++", "C#", "PHP"]
   const dataset_2 = [
     {
-      value: "js_101",
+      value: 101,
       label: "Javascript",
     },
     {
@@ -98,6 +108,10 @@ const App = () => {
       value: "php_201",
       label: "PHP",
     },
+    {
+      value: "golang_101",
+      label: "Go",
+    },
   ]
   return (
     <>
@@ -112,6 +126,7 @@ const App = () => {
         items={dataset_2}
         titleStyle={{ color: "red" }}
         itemStyle={{ color: "red" }}
+        selectedColor="rgba(0,0,0,0.8)"
         confirmButtonEnabledTextStyle={{ color: "red" }}
         confirmButtonDisabledTextStyle={{ color: "grey" }}
         cancelButtonTextStyle={{ color: "red" }}
