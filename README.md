@@ -10,6 +10,9 @@ Using `react-native-modal` and `@react-native-community/picker` component for IO
 
 ### v2.0.0 has a lot of breaking changes. You should be carefull when using this version.
 
+### v2.0.1
+- On IOS null value issue solved.
+
 ### Version 2.0.0
 - useNativeDriver flag added.
 - @react-native-community/picker added because picker extracted from core react native
