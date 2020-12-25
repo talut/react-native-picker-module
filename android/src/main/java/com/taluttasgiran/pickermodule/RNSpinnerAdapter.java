@@ -62,26 +62,28 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
         String text = null;
         Button button = holder.linearLayout.findViewById(R.id.button);
         if (mDataset.getType(position) == ReadableType.Map) {
-            if (mDataset.getMap(position).getType("value") == ReadableType.String) {
-                value = mDataset.getMap(position).getString("value");
-            } else {
-                double number = mDataset.getMap(position).getDouble("value");
-                if (number == Math.rint(number)) {
-                    value = String.valueOf((int) number);
-                } else {
-                    value = String.valueOf(number);
+            if(mDataset.getMap(position).getType("value") != ReadableType.Null){
+                    if (mDataset.getMap(position).getType("value") == ReadableType.String) {
+                                value = mDataset.getMap(position).getString("value");
+                            } else {
+                                double number = mDataset.getMap(position).getDouble("value");
+                                if (number == Math.rint(number)) {
+                                    value = String.valueOf((int) number);
+                                } else {
+                                    value = String.valueOf(number);
+                                }
+                            }
+                            if (mDataset.getMap(position).getType("label") == ReadableType.String) {
+                                text = mDataset.getMap(position).getString("label");
+                            } else {
+                                double number = mDataset.getMap(position).getDouble("label");
+                                if (number == Math.rint(number)) {
+                                    text = String.valueOf((int) number);
+                                } else {
+                                    text = String.valueOf(number);
+                                }
+                            }
                 }
-            }
-            if (mDataset.getMap(position).getType("label") == ReadableType.String) {
-                text = mDataset.getMap(position).getString("label");
-            } else {
-                double number = mDataset.getMap(position).getDouble("label");
-                if (number == Math.rint(number)) {
-                    text = String.valueOf((int) number);
-                } else {
-                    text = String.valueOf(number);
-                }
-            }
         } else if (mDataset.getType(position) == ReadableType.String) {
             text = mDataset.getString(position);
             value = mDataset.getString(position);
