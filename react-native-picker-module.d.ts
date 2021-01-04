@@ -5,9 +5,14 @@
 
 import React from "react"
 
+export type PickerItem<V = any> = string[] | {
+  value: V
+  label: string
+}
+
 export interface ReactNativePickerModuleProps {
   value?: string
-  items: string[]
+  items: PickerItem
   title?: string
   pickerRef: React.RefObject<ReactNativePickerModule>
   onValueChange: (value: string) => void
