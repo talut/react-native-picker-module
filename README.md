@@ -8,6 +8,9 @@ Using `react-native-modal` and `@react-native-community/picker` component for IO
 <img src="./docs/android-picker-module.png" width="200"> <img width="200" src="./docs/ios-picker-module.png">
 
 
+## v2.0.4 released.
+- @react-native-picker/picker added because picker package repo changed.
+
 ## v2.0.31 released.
 
 ### v2.0.31
