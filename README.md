@@ -9,7 +9,7 @@ Using `react-native-modal` and `@react-native-community/picker` component for IO
 
 
 ## v2.0.4 released.
-- @react-native-picker/picker added because picker package repo changed.
+- @react-native-picker/picker added because picker maintainer is changed.
 
 ## v2.0.31 released.
 
