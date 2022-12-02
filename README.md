@@ -9,10 +9,10 @@ Using `react-native-modal` and `@react-native-community/picker` component for IO
 
 ## v2.0.5 released.
 - TypeScript type definitions updated.
-- backgroundColor prop added for Android.
-- tintColor prop added for Android & IOS.
-- confirmButtonAlwaysEnabled prop added for IOS.
-- pickerRef changed to ref and forwardRef used.
+- `backgroundColor` prop added for Android.
+- `tintColor` prop added for Android & IOS.
+- `confirmButtonAlwaysEnabled` prop added for IOS.
+- `pickerRef` changed to `ref` and `forwardRef` used.
 
 ## v2.0.4 released.
 - @react-native-picker/picker added because picker maintainer is changed.
