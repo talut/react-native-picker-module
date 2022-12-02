@@ -68,31 +68,31 @@ react-native link react-native-picker-module
 
 ## Props
 
-| Props                          | Type              | Default & Description   | Required | OS        |
-|--------------------------------|-------------------|-------------------------|----------|-----------|
-| value                          | string            | -                       |**No**        |Android, IOS|
-| useNativeDriver                | bool              | `true`                  |**No**        |IOS|
-| backdropColor                  | string            | -                       |**No**        |IOS|
-| backdropOpacity                | double            | `0.7`                   |**No**        |IOS|
+| Props                          | Type                 | Default & Description   | Required | OS        |
+|--------------------------------|----------------------|-------------------------|----------|-----------|
+| value                          | string               | -                       |**No**        |Android, IOS|
+| useNativeDriver                | bool                 | `true`                  |**No**        |IOS|
+| backdropColor                  | string               | -                       |**No**        |IOS|
+| backdropOpacity                | double               | `0.7`                   |**No**        |IOS|
 | items                          | array / object array | -                       |**Yes**    |Android, IOS|
-| title                          | string            | -                       |**No**        |Android, IOS|
-| titleStyle                     | object            | {}                      |**No**        |IOS        |
-| confirmButtonStyle             | object            | {}                      |**No**        |IOS        |
-| cancelButtonStyle              | object            | {}                      |**No**        |IOS        |
-| contentContainerStyle          | object            | {}                      |**No**        |IOS        |
-| itemStyle                      | object            | {}                      |**No**        |IOS        |
-| cancelButtonTextStyle          | object            | {}                      |**No**        |IOS        |
-| confirmButtonEnabledTextStyle  | object            | {}                      |**No**        |IOS        |
-| confirmButtonDisabledTextStyle | object            | {}                      |**No**        |IOS        |
-| pickerRef                      | any               | -                       |**Yes**   |Android, IOS|
-| onValueChange                  | func              | (value: string) => void |**Yes**   |Android, IOS|
-| cancelButton                   | string            | `Cancel`                |**No**        |IOS        |
-| confirmButton                  | string            | `Confirm`               |**No**        |IOS        |
-| onCancel                       | func              | -                       |**No**    |Android, IOS|
-| selectedColor                  | string            | -                       |**No**    |Android, IOS|
-| backgroundColor                | string            | -                       |**No**    |Android|
-| tintColor                      | string            | -                       |**No**    |Android, IOS|
-| confirmButtonAlwaysEnabled| bool              | `false`                  |**No**    |IOS|
+| title                          | string               | -                       |**No**        |Android, IOS|
+| titleStyle                     | object               | {}                      |**No**        |IOS        |
+| confirmButtonStyle             | object               | {}                      |**No**        |IOS        |
+| cancelButtonStyle              | object               | {}                      |**No**        |IOS        |
+| contentContainerStyle          | object               | {}                      |**No**        |IOS        |
+| itemStyle                      | object               | {}                      |**No**        |IOS        |
+| cancelButtonTextStyle          | object               | {}                      |**No**        |IOS        |
+| confirmButtonEnabledTextStyle  | object               | {}                      |**No**        |IOS        |
+| confirmButtonDisabledTextStyle | object               | {}                      |**No**        |IOS        |
+| ref                            | RefObject            | -                       |**Yes**   |Android, IOS|
+| onValueChange                  | func                 | (value: string) => void |**Yes**   |Android, IOS|
+| cancelButton                   | string               | `Cancel`                |**No**        |IOS        |
+| confirmButton                  | string               | `Confirm`               |**No**        |IOS        |
+| onCancel                       | func                 | -                       |**No**    |Android, IOS|
+| selectedColor                  | string               | -                       |**No**    |Android, IOS|
+| backgroundColor                | string               | -                       |**No**    |Android|
+| tintColor                      | string               | -                       |**No**    |Android, IOS|
+| confirmButtonAlwaysEnabled     | bool                 | `false`                  |**No**    |IOS|
 
 
 ## Usage with Hooks
@@ -142,7 +142,7 @@ const App = () => {
         <Text>Selected Item Text: {value}</Text>
       </SafeAreaView>
       <ReactNativePickerModule
-        pickerRef={pickerRef}
+        ref={pickerRef}
         value={value}
         title={"Select a language"}
         items={dataset_1}
@@ -231,7 +231,7 @@ class App extends React.Component {
           <Text>Selected Item Text: {this.state.value}</Text>
         </SafeAreaView>
         <ReactNativePickerModule
-          pickerRef={this.pickerRef}
+          ref={this.pickerRef}
           value={this.state.value}
           title={"Select a language"}
           items={dataset}
@@ -255,8 +255,6 @@ export default App
 
 ## FYI
 You can use more than one picker in same screen. You just need to set different pickerRef.
-
-p.s : If you want to get country list from native device you can use this package: [https://github.com/talut/react-native-countries](https://github.com/talut/react-native-countries)
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
