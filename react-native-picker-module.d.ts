@@ -3,9 +3,9 @@
 // Definitions by: Talut TASGIRAN <https://github.com/talut>
 // TypeScript Version: 3.8.2
 
-import React, { FunctionComponent } from "react"
 
 declare module "react-native-picker-module" {
+  import { FunctionComponent, RefObject } from "react"
 
   export interface PickerRef {
     /**
@@ -40,10 +40,25 @@ declare module "react-native-picker-module" {
      * Ref of picker
      * @default undefined
      */
-    ref?: React.RefObject<PickerRef>
+    ref?: RefObject<PickerRef>
+    /**
+     * Callback function run after value changed
+     * @param value
+     */
     onValueChange: (value: any) => void
+    /**
+     * Callback function run after cancel
+     */
     onCancel?: () => void
+    /**
+     * Text of cancel button for IOS
+     * @default Cancel
+     */
     cancelButton?: string
+    /**
+     * Text of confirm button for IOS
+     * @default Confirm
+     */
     confirmButton?: string
     contentContainerStyle?: object
     confirmButtonStyle?: object
