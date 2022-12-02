@@ -7,8 +7,9 @@ Using `react-native-modal` and `@react-native-community/picker` component for IO
 
 <img src="./docs/android-picker-module.png" width="200"> <img width="200" src="./docs/ios-picker-module.png">
 
-## v2.0.5 released.
+## v2.0.6 released.
 - TypeScript type definitions updated.
+- Android Gradle updated.
 - `backgroundColor` prop added for Android.
 - `tintColor` prop added for Android & IOS.
 - `confirmButtonAlwaysEnabled` prop added for IOS.
