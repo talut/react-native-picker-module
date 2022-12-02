@@ -1,6 +1,6 @@
 {
   "name": "react-native-picker-module",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "React Native Picker Module for Android & IOS",
   "main": "index.js",
   "types": "react-native-picker-module.d.ts",
@@ -22,7 +22,6 @@
     "react-native-modal": "^11.6.1",
     "react-native": "^0.63.4"
   },
-  "publishConfig": {"registry": "https://npm.pkg.github.com/@talut"},
   "repository": {
     "type": "git",
     "url": "git://github.com/talut/react-native-picker-module.git"
