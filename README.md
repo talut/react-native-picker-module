@@ -9,7 +9,10 @@ Using `react-native-modal` and `@react-native-community/picker` component for IO
 
 ## v2.0.5 released.
 - TypeScript type definitions updated.
--
+- backgroundColor prop added for Android.
+- tintColor prop added for Android & IOS.
+- confirmButtonAlwaysEnabled prop added for IOS.
+- pickerRef changed to ref and forwardRef used.
 
 ## v2.0.4 released.
 - @react-native-picker/picker added because picker maintainer is changed.
@@ -65,28 +68,31 @@ react-native link react-native-picker-module
 
 ## Props
 
-| Props       | Type | Default & Description                            | Required | OS         |
-|-------------|------|--------------------------------------------------|----------|------------|
-|value        |string|-                                                 |**No**        |Android, IOS|
-|useNativeDriver|bool|`true`                                            |**No**        |IOS|
-|backdropColor|string|-                                                 |**No**        |IOS|
-|backdropOpacity|double|`0.7`                                           |**No**        |IOS|
-|items        |array / object array |-                                  |**Yes**    |Android, IOS|
-|title        |string|-                                                 |**No**        |Android, IOS|
-|titleStyle   |object|{}                                                |**No**        |IOS         |
-|confirmButtonStyle   |object|{}                                                |**No**        |IOS         |
-|cancelButtonStyle   |object|{}                                                |**No**        |IOS         |
-|contentContainerStyle   |object|{}                                                |**No**        |IOS         |
-|itemStyle    |object|{}                                                |**No**        |IOS         |
-|cancelButtonTextStyle |object| {}                                      |**No**        |IOS         |
-|confirmButtonEnabledTextStyle|object| {}                               |**No**        |IOS         |
-|confirmButtonDisabledTextStyle |object| {}                             |**No**        |IOS         |
-|pickerRef    |any   |-                                                 |**Yes**   |Android, IOS|
-|onValueChange|func  |(value: string) => void                           |**Yes**   |Android, IOS|
-|cancelButton |string|`Cancel`                                          |**No**        |IOS         |
-|confirmButton|string|`Confirm`                                         |**No**        |IOS         |
-|onCancel     |func  |-                                                 |**No**    |Android, IOS|
-|selectedColor|string|-                                                 |**No**    |Android, IOS|
+| Props                          | Type              | Default & Description   | Required | OS        |
+|--------------------------------|-------------------|-------------------------|----------|-----------|
+| value                          | string            | -                       |**No**        |Android, IOS|
+| useNativeDriver                | bool              | `true`                  |**No**        |IOS|
+| backdropColor                  | string            | -                       |**No**        |IOS|
+| backdropOpacity                | double            | `0.7`                   |**No**        |IOS|
+| items                          | array / object array | -                       |**Yes**    |Android, IOS|
+| title                          | string            | -                       |**No**        |Android, IOS|
+| titleStyle                     | object            | {}                      |**No**        |IOS        |
+| confirmButtonStyle             | object            | {}                      |**No**        |IOS        |
+| cancelButtonStyle              | object            | {}                      |**No**        |IOS        |
+| contentContainerStyle          | object            | {}                      |**No**        |IOS        |
+| itemStyle                      | object            | {}                      |**No**        |IOS        |
+| cancelButtonTextStyle          | object            | {}                      |**No**        |IOS        |
+| confirmButtonEnabledTextStyle  | object            | {}                      |**No**        |IOS        |
+| confirmButtonDisabledTextStyle | object            | {}                      |**No**        |IOS        |
+| pickerRef                      | any               | -                       |**Yes**   |Android, IOS|
+| onValueChange                  | func              | (value: string) => void |**Yes**   |Android, IOS|
+| cancelButton                   | string            | `Cancel`                |**No**        |IOS        |
+| confirmButton                  | string            | `Confirm`               |**No**        |IOS        |
+| onCancel                       | func              | -                       |**No**    |Android, IOS|
+| selectedColor                  | string            | -                       |**No**    |Android, IOS|
+| backgroundColor                | string            | -                       |**No**    |Android|
+| tintColor                      | string            | -                       |**No**    |Android, IOS|
+| confirmButtonAlwaysEnabled| bool              | `false`                  |**No**    |IOS|
 
 
 ## Usage with Hooks

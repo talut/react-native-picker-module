@@ -61,8 +61,12 @@ declare module "react-native-picker-module" {
      */
     confirmButton?: string
     contentContainerStyle?: object
+    /**
+     * To set confirm button disabled state if value is not selected yet for IOS
+     */
+    confirmButtonAlwaysEnabled?: boolean,
     confirmButtonStyle?: object
-    cancelButtonStyle?: object
+    cancelButtonStyle?: object,
     titleStyle?: object
     itemStyle?: object
     useNativeDriver?: boolean
@@ -72,6 +76,8 @@ declare module "react-native-picker-module" {
     backdropColor?: string
     backdropOpacity?: number
     selectedColor?: string
+    backgroundColor?: string
+    tintColor?: string
   }
 
   const ReactNativePickerModule: FunctionComponent<ReactNativePickerModuleProps>
