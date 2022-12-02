@@ -18,9 +18,9 @@
   "author": "Talut TASGIRAN",
   "license": "MIT",
   "peerDependencies": {
-    "@react-native-picker/picker": "^1.9.10",
-    "react-native-modal": "^11.6.1",
-    "react-native": "^0.63.4"
+    "@react-native-picker/picker": "*",
+    "react-native-modal": "*",
+    "react-native": "*"
   },
   "repository": {
     "type": "git",
