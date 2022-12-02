@@ -6,25 +6,37 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
 
+import javax.annotation.Nullable;
+
 public class ReactNativePickerModuleModule extends ReactContextBaseJavaModule {
-    private final ReactApplicationContext reactContext;
     private RNSpinner rnSpinner;
 
     public ReactNativePickerModuleModule(ReactApplicationContext reactContext) {
         super(reactContext);
-        this.reactContext = reactContext;
     }
 
     @ReactMethod
     public void show(
             ReadableArray items,
-            String selectedValue,
-            String title,
-            ReadableArray selectedColor,
+            @Nullable String selectedValue,
+            @Nullable String title,
+            @Nullable String selectedColor,
+            @Nullable String backgroundColor,
+            @Nullable String tintColor,
             final Callback onClickCallback,
-            final Callback onCancelCallback
+            @Nullable final Callback onCancelCallback
     ) {
-        rnSpinner = new RNSpinner(getCurrentActivity(), items, selectedValue, title, selectedColor, onClickCallback, onCancelCallback);
+        rnSpinner = new RNSpinner(
+                getCurrentActivity(),
+                items,
+                selectedValue,
+                title,
+                selectedColor,
+                backgroundColor,
+                tintColor,
+                onClickCallback,
+                onCancelCallback
+        );
         rnSpinner.show();
     }
 
