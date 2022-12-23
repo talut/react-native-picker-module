@@ -51,7 +51,7 @@ Using `react-native-modal` and `@react-native-picker/picker` component for IOS a
 **With YARN**
 
 ```
-yarn add react-native-picker-module && yarn add react-native-modal && yarn add @react-native-community/picker
+yarn add react-native-picker-module && yarn add react-native-modal && yarn add @react-native-picker/picker
 ```
 
 #### After React Native v0.60.0
@@ -102,161 +102,59 @@ react-native link react-native-picker-module
 
 ## Usage with Hooks
 ```javascript
-import React, { useRef, useState } from "react"
-import { Button, SafeAreaView, Text } from "react-native"
-import ReactNativePickerModule from "react-native-picker-module"
+import React, {useRef, useState} from 'react';
+import {Button, SafeAreaView, Text} from 'react-native';
+import ReactNativePickerModule, {PickerRef} from 'react-native-picker-module';
 
 const App = () => {
-  const pickerRef = useRef()
-  const [value, setValue] = useState()
-  const dataset_1 = [1, 2, "Java", "Kotlin", "C++", "C#", "PHP"]
-  const dataset_2 = [
-    {
-      value: 101,
-      label: "Javascript",
-    },
-    {
-      value: "golang_101",
-      label: "Go",
-    },
-    {
-      value: "kotlin_dsl",
-      label: "Kotlin",
-    },
-    {
-      value: "java_101",
-      label: "Java",
-    },
-    {
-      value: "cplusplus",
-      label: "C++",
-    },
-    {
-      value: "csharp_201",
-      label: "C#",
-    },
-    {
-      value: "php_201",
-      label: "PHP",
-    },
-  ]
-  return (
-    <>
-      <SafeAreaView>
-        <Button title="Select a language" onPress={() => pickerRef.current.show()} />
-        <Text>Selected Item Text: {value}</Text>
-      </SafeAreaView>
-      <ReactNativePickerModule
-        ref={pickerRef}
-        value={value}
-        title={"Select a language"}
-        items={dataset_1}
-        titleStyle={{ color: "white" }}
-        itemStyle={{ color: "white" }}
-        selectedColor="#FC0"
-        confirmButtonEnabledTextStyle={{ color: "white" }}
-        confirmButtonDisabledTextStyle={{ color: "grey" }}
-        cancelButtonTextStyle={{ color: "white" }}
-        confirmButtonStyle={{
-          backgroundColor: "rgba(0,0,0,1)",
-        }}
-        cancelButtonStyle={{
-          backgroundColor: "rgba(0,0,0,1)",
-        }}
-        contentContainerStyle={{
-          backgroundColor: "rgba(0,0,0,1)",
-        }}
-        onCancel={() => {
-          console.log("Cancelled")
-        }}
-        onValueChange={value => {
-          console.log("value: ", value)
-          setValue(value)
-        }}
-      />
-    </>
-  )
-}
-
-export default App
-
-```
-
-
-## Class Component Example
-
-```javascript
-import React from "react"
-import { SafeAreaView, Text, Button } from "react-native"
-import ReactNativePickerModule from "react-native-picker-module"
-
-const dataset = [
-  {
-    value: 101,
-    label: "Javascript",
-  },
-  {
-    value: "golang_101",
-    label: "Go",
-  },
-  {
-    value: "kotlin_dsl",
-    label: "Kotlin",
-  },
-  {
-    value: "java_101",
-    label: "Java",
-  },
-  {
-    value: "cplusplus",
-    label: "C++",
-  },
-  {
-    value: "csharp_201",
-    label: "C#",
-  },
-  {
-    value: "php_201",
-    label: "PHP",
-  },
-]
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.pickerRef = React.createRef()
-    this.state = {
-      value: null,
-    }
-  }
-  render() {
+    const pickerRef = useRef<PickerRef>(null);
+    const [value, setValue] = useState();
+    const dataset_1 = [1, 2, 'Java', 'Kotlin', 'C++', 'C#', 'PHP'];
     return (
-      <>
-        <SafeAreaView>
-          <Button title="Select a language" onPress={() => this.pickerRef.current.show()} />
-          <Text>Selected Item Text: {this.state.value}</Text>
-        </SafeAreaView>
-        <ReactNativePickerModule
-          ref={this.pickerRef}
-          value={this.state.value}
-          title={"Select a language"}
-          items={dataset}
-          selectedColor="#FC0"
-          onCancel={() => {
-            console.log("Cancelled")
-          }}
-          onValueChange={value => {
-            this.setState({
-              value: value,
-            })
-          }}
-        />
-      </>
-    )
-  }
-}
-export default App
-```
+            <>
+                <SafeAreaView>
+                    <Button
+                            title="Select a language"
+                            onPress={() => pickerRef.current?.show()}
+                    />
+                    <Text>Selected Item Text: {value}</Text>
+                </SafeAreaView>
+                <ReactNativePickerModule
+                        ref={pickerRef}
+                        value={value}
+                        title={'Select a language'}
+                        items={dataset_1}
+                        titleStyle={{color: 'white'}}
+                        itemStyle={{color: 'white'}}
+                        selectedColor="#FC0"
+                        confirmButtonEnabledTextStyle={{color: 'white'}}
+                        confirmButtonDisabledTextStyle={{color: 'grey'}}
+                        cancelButtonTextStyle={{color: 'white'}}
+                        confirmButtonStyle={{
+                            backgroundColor: 'rgba(0,0,0,1)',
+                        }}
+                        cancelButtonStyle={{
+                            backgroundColor: 'rgba(0,0,0,1)',
+                        }}
+                        contentContainerStyle={{
+                            backgroundColor: 'rgba(0,0,0,1)',
+                        }}
+                        onCancel={() => {
+                            console.log('Cancelled');
+                        }}
+                        onValueChange={value => {
+                            console.log('value: ', value);
+                            setValue(value);
+                        }}
+                />
+            </>
+    );
+};
 
+export default App;
+
+
+```
 
 ## FYI
 You can use more than one picker in same screen. You just need to set different pickerRef.
