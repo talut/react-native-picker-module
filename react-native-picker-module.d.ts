@@ -1,4 +1,4 @@
-// Type definitions for react-native-picker-module 2.0.6
+// Type definitions for react-native-picker-module 2.0.7
 // Project: https://github.com/talut/react-native-picker-module
 // Definitions by: Talut TASGIRAN <https://github.com/talut>
 // TypeScript Version: 3.8.2

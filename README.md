@@ -2,10 +2,13 @@
 
 With this package you can easily use picker with onPress function.
 
-Using `react-native-modal` and `@react-native-community/picker` component for IOS and using `RecyclerView` and `AlertDialog` for Android as `NativeModule`.
+Using `react-native-modal` and `@react-native-picker/picker` component for IOS and using `RecyclerView` and `AlertDialog` for Android as `NativeModule`.
 
 
 <img src="./docs/android-picker-module.png" width="200"> <img width="200" src="./docs/ios-picker-module.png">
+
+## v2.0.7 released.
+- Picker library updated to `@react-native-picker/picker` from `@react-native-community/picker`
 
 ## v2.0.6 released.
 - TypeScript type definitions updated.
@@ -14,6 +17,7 @@ Using `react-native-modal` and `@react-native-community/picker` component for IO
 - `tintColor` prop added for Android & IOS.
 - `confirmButtonAlwaysEnabled` prop added for IOS.
 - `pickerRef` changed to `ref` and `forwardRef` used.
+
 
 ## v2.0.4 released.
 - @react-native-picker/picker added because picker maintainer is changed.
