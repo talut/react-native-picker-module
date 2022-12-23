@@ -1,6 +1,6 @@
 {
   "name": "react-native-picker-module",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "React Native Picker Module for Android & IOS",
   "main": "index.js",
   "types": "react-native-picker-module.d.ts",
