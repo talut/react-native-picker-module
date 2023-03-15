@@ -20,6 +20,8 @@ declare module "react-native-picker-module" {
     hide: () => void,
   }
 
+  export type Item = number | string | { label: string; value: number | string }
+
   export interface ReactNativePickerModuleProps {
     /**
      * Initial value of picker
@@ -30,7 +32,7 @@ declare module "react-native-picker-module" {
      * Items of picker
      * @default []
      */
-    items: any[]
+    items: Item[]
     /**
      * Title of picker
      * @default undefined
@@ -45,7 +47,7 @@ declare module "react-native-picker-module" {
      * Callback function run after value changed
      * @param value
      */
-    onValueChange: (value: any) => void
+    onValueChange: (value: string) => void
     /**
      * Callback function run after cancel
      */
