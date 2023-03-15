@@ -119,6 +119,8 @@ public class RNSpinnerAdapter extends RecyclerView.Adapter<RNSpinnerAdapter.MyVi
                 if (selectedColor != null) {
                     button.setTextColor(Color.parseColor(selectedColor));
                 }
+            } else {
+                button.setEnabled(true);
             }
         }
         button.setOnClickListener(v -> {
